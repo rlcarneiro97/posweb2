@@ -1,2 +1,2 @@
-# posweb2-rafael
+# posweb2
 Projeto da Pós de Java Web 2
