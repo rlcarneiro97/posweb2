@@ -1,5 +1,6 @@
 package dev.fujioka.java.avancado.web.resource;
 
+import dev.fujioka.java.avancado.web.dto.DisciplinaDTO;
 import dev.fujioka.java.avancado.web.model.Disciplina;
 import dev.fujioka.java.avancado.web.service.DisciplinaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class DisciplinaResource {
         private DisciplinaService disciplinaService;
 
         @PostMapping
-        public ResponseEntity<Disciplina> salvar(@RequestBody Disciplina disciplina){
+        public ResponseEntity<DisciplinaDTO> salvar(@RequestBody Disciplina disciplina){
             return ResponseEntity.ok(disciplinaService.salvar(disciplina));
         }
 

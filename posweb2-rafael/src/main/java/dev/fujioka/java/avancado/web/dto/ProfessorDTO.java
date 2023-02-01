@@ -5,7 +5,7 @@ import lombok.Builder;
 
 @Builder
 @SuppressWarnings("unused")
-public class AlunoDTO implements Serializable{
+public class ProfessorDTO implements Serializable{
 
         private Integer id;
         private String nome;

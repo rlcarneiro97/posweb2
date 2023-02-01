@@ -1,8 +1,10 @@
 package dev.fujioka.java.avancado.web.service;
 
+import dev.fujioka.java.avancado.web.dto.DisciplinaDTO;
 import dev.fujioka.java.avancado.web.model.Disciplina;
 import dev.fujioka.java.avancado.web.repository.DisciplinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
@@ -13,8 +15,16 @@ public class DisciplinaService {
     @Autowired
     private DisciplinaRepository disciplinaRepository;
 
-    public Disciplina salvar(Disciplina disciplina){
-        return disciplinaRepository.save(disciplina);
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    public DisciplinaDTO salvar(Disciplina disciplina){
+        disciplina = disciplinaRepository.save(disciplina);
+        jmsTemplate.convertAndSend("disciplina_queue", disciplina);
+        return DisciplinaDTO.builder()
+                .nome(disciplina.getNome())
+                .cargaHoraria(disciplina.getCargaHoraria())
+                .build();
     }
 
     public List<Disciplina> listarDisciplinas(){

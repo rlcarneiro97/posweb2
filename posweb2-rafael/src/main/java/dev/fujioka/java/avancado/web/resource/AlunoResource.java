@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/aluno")
+@RequestMapping(value = "/aluno")
 public class AlunoResource {
 
         @Autowired

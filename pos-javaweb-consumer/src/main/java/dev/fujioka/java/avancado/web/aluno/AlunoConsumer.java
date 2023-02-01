@@ -5,7 +5,7 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MatriculaAlunoConsumer {
+public class AlunoConsumer {
 
     @JmsListener(destination = "aluno_queue")
     public void receiveMessage(Aluno aluno) {

@@ -5,10 +5,10 @@ import lombok.Builder;
 
 @Builder
 @SuppressWarnings("unused")
-public class AlunoDTO implements Serializable{
+public class DisciplinaDTO implements Serializable{
 
         private Integer id;
         private String nome;
-        private String matricula;
+        private String cargaHoraria;
 }
 
